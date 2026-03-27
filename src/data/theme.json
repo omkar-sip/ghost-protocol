@@ -1,0 +1,146 @@
+{
+  "global": {
+    "colors": {
+      "primary": "#406900",
+      "primaryContainer": "#a2ff00",
+      "background": "#ffffff",
+      "surface": "#f9f9f9",
+      "text": "#1a1c1c",
+      "textVariant": "#414a34"
+    }
+  },
+  "sections": [
+    {
+      "id": "navbar-intro",
+      "type": "navbar",
+      "settings": {
+        "brand": "GHOST PROTOCOL",
+        "links": [
+          {
+            "label": "Doodles",
+            "href": "#hero"
+          },
+          {
+            "label": "Wins",
+            "href": "#wins"
+          },
+          {
+            "label": "Garage",
+            "href": "#garage"
+          },
+          {
+            "label": "Join",
+            "href": "#join"
+          }
+        ]
+      }
+    },
+    {
+      "id": "ticker-intro",
+      "type": "ticker",
+      "settings": {
+        "items": [
+          {
+            "text": "GHOST PROTOCOL"
+          },
+          {
+            "text": "ANALOG BLUEPRINT"
+          },
+          {
+            "text": "3X HACKATHON CHAMPIONS"
+          },
+          {
+            "text": "BOREDOM_SKETCHES_CATALOG_V4"
+          }
+        ]
+      }
+    },
+    {
+      "id": "hero-intro",
+      "type": "hero",
+      "settings": {
+        "badge": "team supreme",
+        "title": "GHOST<br/>PROTOCOL",
+        "description": "Where raw sketches meet production-grade engineering. We don't build apps; we architect digital blueprints that breathe.",
+        "cta": "Enter Canvas",
+        "ctaLink": "#garage",
+        "secondaryCta": "View Wins",
+        "secondaryCtaLink": "#wins",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCVs4mfdLHlEDTtqMMoOwd-2QUdgV55xASSsZfFbaQ0xgqQFKrf8csO68U1eTeLfsP6YDtXB0lXT5zh1pZDFcvyptktt5lkMiOtvfkz3reKi7ZPU6GCXegVXPvo5Yq5heU1_YULT7qq9qG4fapRnHsfwRkPjn9wHBAk_Z5-wBIVPiB0n--Lwd-xwnQFp-1_18LO63kyodGvbxs2CpeoNz4vPI9-dHtbxTT1pd2Lpzgi55N7EcYFwMIMFkBTMtJU8IyU_9OvO3VfoA",
+        "imageAlt": "GHOST PROTOCOL concept sketch"
+      }
+    },
+    {
+      "id": "wins-intro",
+      "type": "wins",
+      "settings": {
+        "title": "Victory Lap",
+        "stamp": "ARCHIVE_03_WINS",
+        "cards": [
+          {
+            "id": "1",
+            "badge": "Gold / 2023",
+            "title": "NEURAL_DRIFT",
+            "description": "First Place at Global AI Sprint. Built a real-time gesture control system for autonomous racing simulators.",
+            "status": "Status: Verified Deployment"
+          },
+          {
+            "id": "2",
+            "badge": "Titan / 2023",
+            "title": "SYNTH_BLUEPRINT",
+            "description": "Winner of Web3 Builders Summit. Developed a CAD-to-NFT pipeline with parametric sketch generation.",
+            "status": "Status: Open Source Alpha"
+          }
+        ]
+      }
+    },
+    {
+      "id": "garage-intro",
+      "type": "garage",
+      "settings": {
+        "title": "The Garage",
+        "stamp": "BOREDOM_SKETCHES_CATALOG_V4",
+        "items": [
+          {
+            "id": "1",
+            "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCmzL7i4aXu5y4Bp8q4zQFA9CZakr3CwuWatbwy8gxEm80vsv3nt2Y4DMKiRpO9z4lF3_ZPIJp74VcMSkrgFBoPmwedAItzLSMU_OKLsTjIp04k19GBX_GlmbzuuRJTOzcRMJGpVQpS4AGNmV9JLkvOdUWMa3bWxzM7EdGSaG9VeMvdhYpgBTpplMSS2RbEZ1a6kQOSRn5ZIOI2dfuoxlrxqvRxO946pv7yZjnjDWJZW_CxuGrPAQgDFGjYfKGxM9Gy_g2BkFd-uQ",
+            "label": "#AERO_FLOW_01",
+            "alt": "Aero Flow sketch"
+          },
+          {
+            "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCmzL7i4aXu5y4Bp8q4zQFA9CZakr3CwuWatbwy8gxEm80vsv3nt2Y4DMKiRpO9z4lF3_ZPIJp74VcMSkrgFBoPmwedAItzLSMU_OKLsTjIp04k19GBX_GlmbzuuRJTOzcRMJGpVQpS4AGNmV9JLkvOdUWMa3bWxzM7EdGSaG9VeMvdhYpgBTpplMSS2RbEZ1a6kQOSRn5ZIOI2dfuoxlrxqvRxO946pv7yZjnjDWJZW_CxuGrPAQgDFGjYfKGxM9Gy_g2BkFd-uQ",
+            "label": "#NEW",
+            "alt": "Alt"
+          }
+        ]
+      }
+    },
+    {
+      "id": "join-intro",
+      "type": "join",
+      "settings": {
+        "title": "Access Protocol:<br/>Collaborator_Apply",
+        "stamp": "Document ID: GP-REQ-2024-X",
+        "description": "We are seeking minds that reject the clean, sterile \"template\" of modern UI. If you find beauty in the <strong>rough draft</strong>... you belong here."
+      }
+    },
+    {
+      "id": "footer-intro",
+      "type": "footer",
+      "settings": {
+        "brand": "GHOST PROTOCOL",
+        "copyright": "© GHOST PROTOCOL / ANALOG BLUEPRINT",
+        "socialLinks": [
+          {
+            "label": "Instagram",
+            "href": "#"
+          },
+          {
+            "label": "Github",
+            "href": "#"
+          }
+        ]
+      }
+    }
+  ]
+}

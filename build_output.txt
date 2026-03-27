@@ -1,0 +1,77 @@
+﻿
+> ghost-protocol-app@0.1.0 build
+> next build
+
+Γû▓ Next.js 16.2.1 (Turbopack)
+
+  Creating an optimized production build ...
+node.exe : 
+At C:\Program Files\nod
+ejs\npm.ps1:29 char:3
++   & $NODE_EXE 
+$NPM_CLI_JS $args
++   ~~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~
+    + CategoryInfo     
+         : NotSpecifi  
+  ed: (:String) [],    
+ RemoteException
+    + FullyQualifiedEr 
+   rorId : NativeComm  
+  andError
+ 
+> Build error occurred
+Error: Turbopack build 
+failed with 1 errors:
+./src/components/editor
+/ThemeEditor.tsx:6:1
+Module not found: 
+Can't resolve 
+'../dashboard.css'
+  [90m4 |[0m 
+[36mimport[0m { 
+[33mThemeConfig[0m, 
+[33mComponentSchema[0m
+, [33mSchemaField[0m 
+} [36mfrom[0m [32m'@
+/types/theme'[0m;
+  [90m5 |[0m 
+[36mimport[0m { 
+componentSchemas } 
+[36mfrom[0m 
+[32m'@/registry'[0m;
+[31m[1m>[0m [90m6 
+|[0m [36mimport[0m 
+[32m'../dashboard.css'
+[0m;
+  [90m  |[0m [31m[1
+m^^^^^^^^^^^^^^^^^^^^^^
+^^^^[0m
+  [90m7 |[0m
+  [90m8 |[0m [90m// 
+The auto-generated 
+Schema Form[0m
+  [90m9 |[0m 
+[36mfunction[0m 
+[33mSchemaForm[0m({
+
+
+
+Import trace:
+  Server Component:
+    ./src/components/ed
+itor/ThemeEditor.tsx
+    ./src/app/dashboard
+/editor/page.tsx
+
+https://nextjs.org/docs
+/messages/module-not-fo
+und
+
+
+    at <unknown> (./src
+/components/editor/Them
+eEditor.tsx:6:1)
+    at <unknown> (https
+://nextjs.org/docs/mess
+ages/module-not-found)

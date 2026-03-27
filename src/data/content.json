@@ -1,0 +1,126 @@
+{
+  "nav": {
+    "brand": "GHOST PROTOCOL",
+    "links": [
+      {
+        "label": "Doodles",
+        "href": "#hero"
+      },
+      {
+        "label": "Wins",
+        "href": "#wins"
+      },
+      {
+        "label": "Garage",
+        "href": "#garage"
+      },
+      {
+        "label": "Join",
+        "href": "#join"
+      }
+    ]
+  },
+  "hero": {
+    "badge": "✦ 3× Hackathon Champions",
+    "title": "GHOST<br/>PROTOCOL",
+    "description": "Where raw sketches meet production-grade engineering. We don't build apps; we architect digital blueprints that breathe.",
+    "cta": "Enter Canvas",
+    "ctaLink": "#garage",
+    "secondaryCta": "View Wins",
+    "secondaryCtaLink": "#wins",
+    "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCVs4mfdLHlEDTtqMMoOwd-2QUdgV55xASSsZfFbaQ0xgqQFKrf8csO68U1eTeLfsP6YDtXB0lXT5zh1pZDFcvyptktt5lkMiOtvfkz3reKi7ZPU6GCXegVXPvo5Yq5heU1_YULT7qq9qG4fapRnHsfwRkPjn9wHBAk_Z5-wBIVPiB0n--Lwd-xwnQFp-1_18LO63kyodGvbxs2CpeoNz4vPI9-dHtbxTT1pd2Lpzgi55N7EcYFwMIMFkBTMtJU8IyU_9OvO3VfoA",
+    "imageAlt": "GHOST PROTOCOL concept sketch"
+  },
+  "ticker": [
+    "GHOST PROTOCOL",
+    "ANALOG BLUEPRINT",
+    "3X HACKATHON CHAMPIONS",
+    "BOREDOM_SKETCHES_CATALOG_V4",
+    "RAW SKETCHES MEET PRODUCTION GRADE ENGINEERING",
+    "NEURAL_DRIFT",
+    "SYNTH_BLUEPRINT",
+    "ANALOG_CLOUD",
+    "OPEN SOURCE ALPHA",
+    "SYSTEM_STABLE"
+  ],
+  "wins": {
+    "title": "Victory Lap",
+    "stamp": "ARCHIVE_03_WINS",
+    "cards": [
+      {
+        "id": "1",
+        "badge": "Gold / 2023",
+        "title": "NEURAL_DRIFT",
+        "description": "First Place at Global AI Sprint. Built a real-time gesture control system for autonomous racing simulators.",
+        "status": "Status: Verified Deployment"
+      },
+      {
+        "id": "2",
+        "badge": "Titan / 2023",
+        "title": "SYNTH_BLUEPRINT",
+        "description": "Winner of Web3 Builders Summit. Developed a CAD-to-NFT pipeline with parametric sketch generation.",
+        "status": "Status: Open Source Alpha"
+      },
+      {
+        "id": "3",
+        "badge": "Grand Prix / 2024",
+        "title": "ANALOG_CLOUD",
+        "description": "Best Design at SXSW Hack. A low-latency bridge between paper sketches and cloud infrastructure.",
+        "status": "Status: Scaling to v2"
+      }
+    ]
+  },
+  "garage": {
+    "title": "The Garage",
+    "stamp": "BOREDOM_SKETCHES_CATALOG_V4",
+    "items": [
+      {
+        "id": "1",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCmzL7i4aXu5y4Bp8q4zQFA9CZakr3CwuWatbwy8gxEm80vsv3nt2Y4DMKiRpO9z4lF3_ZPIJp74VcMSkrgFBoPmwedAItzLSMU_OKLsTjIp04k19GBX_GlmbzuuRJTOzcRMJGpVQpS4AGNmV9JLkvOdUWMa3bWxzM7EdGSaG9VeMvdhYpgBTpplMSS2RbEZ1a6kQOSRn5ZIOI2dfuoxlrxqvRxO946pv7yZjnjDWJZW_CxuGrPAQgDFGjYfKGxM9Gy_g2BkFd-uQ",
+        "label": "#AERO_FLOW_01",
+        "alt": "Aero Flow concept sketch"
+      },
+      {
+        "id": "2",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCAFJH0Ym9UaIEa_SYdQtTV-a6Msqez31Us1L9K1i_1jYlZUPuEdDw77dspR4RjU29dLgsR6IWG06Q7O_PpBHpgN3ZAi1Ar43hBSObrgXC2mny7uRCa2eImPnSg_g6z4eLfonW4Qfb2Jc0OfkTZv2mbsqvah1eU55CJixV8Uv9eE4roUMwoPZ_VRjLlY5TpdIVbITquf5GH6cgsICc6I7jNAp2IWcVhdweRqt3kc5SiXyo6cLbjyi5lyVfE9xQ4VPb2_fdSIqrL4A",
+        "label": "#BRUTAL_TRUCK_X",
+        "alt": "Brutal Truck concept sketch"
+      },
+      {
+        "id": "3",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuBUlAL9wYJILYxlYbo-ePIxel_STb4HMGE3InmBi31sB39QdoTORaoSBNF0TkjAhQeMXb5Q5Ugub9DcpYRqBytiWQ1zd4Bgfzr0KC72-nZY98V3Ni_B3iXBehGUJ8HFFi6ptl0NKFzEqYcgVDWcoYJhzpbu5dXfrlpSHQg_FtDF6Tp0udellYZUnGdPoSf1DcY7lslRvGDiohlMC0LFEA2kLmQtIDRvaoPjPw7MrlVYI0XBZNKWcpo7IWTBrTiYEKaNJ6-PnuE5ng",
+        "label": "#INTERIOR_BLUEPRINT",
+        "alt": "Interior Blueprint sketch"
+      },
+      {
+        "id": "4",
+        "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuC6T5vj_y6LUpV9kQ-vLwzYFnSsRdHZTxK4T4Zeg-DJKiCtJxZRjNXDxKF7nOOjbhQ8e70dhgzSaqn5yPkd4-PwWwtlFEsBLBtAStxiOro7vbN55v9b-GP8eytc5x3MnadpcGZXJhVJJeWkEkdqupRrUN1z0K09-6QKpGuOFvHjZRz6u2XRqUhQuC2C2EVOogIILOyTpqXxQqXjZcHwruVUiS5_93YZOPH9yJ5TH0fTQ6hwD2WfRG4j-ZoACMUDrQg4WISRqGnG6nw",
+        "label": "#MOTION_BLUR_STUDY",
+        "alt": "Motion blur study sketch"
+      }
+    ]
+  },
+  "join": {
+    "title": "Access Protocol:<br/>Collaborator_Apply",
+    "stamp": "Document ID: GP-REQ-2024-X",
+    "description": "We are seeking minds that reject the clean, sterile \"template\" of modern UI. If you find beauty in the <strong>rough draft</strong>, the charcoal smudge, and the architectural skeleton of a digital product—you belong here."
+  },
+  "footer": {
+    "brand": "GHOST PROTOCOL",
+    "copyright": "© GHOST PROTOCOL / ANALOG BLUEPRINT",
+    "socialLinks": [
+      {
+        "label": "Instagram",
+        "href": "#"
+      },
+      {
+        "label": "Github",
+        "href": "#"
+      },
+      {
+        "label": "Twitter",
+        "href": "#"
+      }
+    ]
+  }
+}
