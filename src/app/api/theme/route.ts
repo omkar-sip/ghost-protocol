@@ -2,6 +2,7 @@ import { NextResponse } from 'next/server';
 import fs from 'fs';
 import path from 'path';
 import { ThemeConfig } from '@/types/theme';
+import defaultTheme from '@/data/theme.json';
 
 export const dynamic = 'force-dynamic';
 
@@ -12,7 +13,7 @@ import { getAdminAuth, getAdminFirestore } from '@/lib/firebase/admin';
 export async function GET() {
   try {
     const db = getAdminFirestore();
-    if (!db) return NextResponse.json({ error: 'Firestore unavailable' }, { status: 500 });
+    if (!db) return NextResponse.json(defaultTheme);
     
     const docRef = db.collection('storefront').doc('theme');
     const docSnap = await docRef.get();
@@ -35,7 +36,7 @@ export async function GET() {
     return NextResponse.json(themeData);
   } catch (error) {
     console.error('Firestore GET error:', error);
-    return NextResponse.json({ error: 'Failed to read theme data' }, { status: 500 });
+    return NextResponse.json(defaultTheme);
   }
 }
 

@@ -5,16 +5,22 @@ import { ThemeConfig } from '@/types/theme';
 import { componentRegistry } from '@/registry';
 import CustomCursor from '@/components/CustomCursor';
 import ThemeProvider from '@/components/ThemeProvider';
+import defaultTheme from '@/data/theme.json';
 
 export default function DynamicPage() {
-  const [theme, setTheme] = useState<ThemeConfig | null>(null);
+  // Render the checked-in theme immediately. Firestore is an optional source
+  // of live edits and must not be able to keep the public page on a spinner.
+  const [theme, setTheme] = useState<ThemeConfig>(defaultTheme as ThemeConfig);
 
   useEffect(() => {
     // Initial fetch from the dynamic API
     fetch('/api/theme')
-      .then(res => res.json())
-      .then(data => setTheme(data))
-      .catch(err => console.error("Failed to load theme:", err));
+      .then(async (res) => {
+        if (!res.ok) throw new Error(`Theme API returned ${res.status}`);
+        const data = await res.json();
+        if (data && Array.isArray(data.sections)) setTheme(data as ThemeConfig);
+      })
+      .catch(err => console.warn("Using local theme fallback:", err));
 
     // Listen for live updates from the Shopify-like dashboard iframe
     const handleMessage = (event: MessageEvent) => {
@@ -28,28 +34,6 @@ export default function DynamicPage() {
     window.addEventListener('message', handleMessage);
     return () => window.removeEventListener('message', handleMessage);
   }, []);
-
-  if (!theme || !theme.sections) {
-    return (
-      <div style={{
-        minHeight: '100vh', display: 'flex', alignItems: 'center',
-        justifyContent: 'center', background: '#0a0a0a'
-      }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
-          <div style={{
-            width: '7px', height: '7px', background: '#a2ff00',
-            border: '1px solid #406900', animation: 'pulse-dot 2s infinite'
-          }} />
-          <span style={{
-            fontFamily: "'Space Grotesk', monospace", fontSize: '10px',
-            textTransform: 'uppercase', letterSpacing: '0.12em', opacity: 0.5, color: '#fff'
-          }}>
-            INITIALIZING_CANVAS...
-          </span>
-        </div>
-      </div>
-    );
-  }
 
   // Extract layout components to render them outside <main>, this keeps sticky navs happy
   const navSection = theme.sections.find(s => s.type === 'navbar');
