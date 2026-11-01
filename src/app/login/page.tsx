@@ -1,14 +1,12 @@
 'use client';
 
 import { useState } from 'react';
-import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
-  const router = useRouter();
 
   const handleLogin = async (event: React.FormEvent) => {
     event.preventDefault();
@@ -23,7 +21,9 @@ export default function LoginPage() {
       });
       const data = await response.json();
       if (!response.ok) throw new Error(data.error || 'Login failed.');
-      router.push('/dashboard/editor');
+      // Reload so the dashboard and AuthProvider read the newly-created
+      // HttpOnly session cookie instead of the login page's stale state.
+      window.location.assign('/dashboard/editor');
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Login failed.');
     } finally {
