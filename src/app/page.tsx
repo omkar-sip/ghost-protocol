@@ -8,8 +8,7 @@ import ThemeProvider from '@/components/ThemeProvider';
 import defaultTheme from '@/data/theme.json';
 
 export default function DynamicPage() {
-  // Render the checked-in theme immediately. Firestore is an optional source
-  // of live edits and must not be able to keep the public page on a spinner.
+  // Render the checked-in theme immediately; live edits are optional.
   const [theme, setTheme] = useState<ThemeConfig>(defaultTheme as ThemeConfig);
 
   useEffect(() => {

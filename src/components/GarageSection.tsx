@@ -31,8 +31,7 @@ export default function GarageSection({ settings: content, id }: SectionProps) {
     });
   };
 
-  // Older Firestore documents may still contain the previous two-item garage.
-  // Use the bundled team artwork until that document is updated.
+  // Keep the public gallery complete even when older content is supplied.
   const teamItems = [1, 2, 3, 4].map((team) => ({
     id: `team-${team}`,
     image: `/team${team}.jpg`,

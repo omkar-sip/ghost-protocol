@@ -3,7 +3,6 @@
 import { useState, useEffect, useCallback } from 'react';
 import { ThemeConfig, SchemaField } from '@/types/theme';
 import { componentSchemas } from '@/registry';
-import { useAuth } from '@/context/AuthContext';
 import '@/app/dashboard/dashboard.css';
 
 // The auto-generated Schema Form
@@ -195,20 +194,14 @@ export default function ThemeEditor() {
     }
   }, []);
 
-  const { getToken } = useAuth();
-
   const handleSave = async () => {
     if (!theme) return;
     setIsSaving(true);
     try {
-      const token = await getToken();
-      if (!token) throw new Error('Authentication required');
-
       const res = await fetch('/api/theme', {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
         },
         body: JSON.stringify(theme),
       });
