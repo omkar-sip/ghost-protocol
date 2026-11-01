@@ -94,6 +94,13 @@
             "title": "SYNTH_BLUEPRINT",
             "description": "Winner of Web3 Builders Summit. Developed a CAD-to-NFT pipeline with parametric sketch generation.",
             "status": "Status: Open Source Alpha"
+          },
+          {
+            "id": "3",
+            "badge": "Grand Prix / 2024",
+            "title": "ANALOG_CLOUD",
+            "description": "Best Design at SXSW Hack. A low-latency bridge between paper sketches and cloud infrastructure.",
+            "status": "Status: Scaling to v2"
           }
         ]
       }

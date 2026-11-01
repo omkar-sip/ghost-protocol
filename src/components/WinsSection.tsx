@@ -39,6 +39,16 @@ export default function WinsSection({ settings: content }: SectionProps) {
   }, []);
 
   const tapeRotations = ['rotate(-2deg)', 'rotate(2deg)', 'rotate(-1deg)'];
+  const fallbackWin: WinCard = {
+    id: '3',
+    badge: 'Grand Prix / 2024',
+    title: 'ANALOG_CLOUD',
+    description: 'Best Design at SXSW Hack. A low-latency bridge between paper sketches and cloud infrastructure.',
+    status: 'Status: Scaling to v2',
+  };
+  const cards: WinCard[] = Array.isArray(content.cards) && content.cards.length >= 3
+    ? content.cards
+    : [...(content.cards || []), fallbackWin];
 
   return (
     <section
@@ -94,7 +104,7 @@ export default function WinsSection({ settings: content }: SectionProps) {
             gap: '3.5rem'
           }}
         >
-          {content.cards.map((card: WinCard, i: number) => (
+          {cards.map((card: WinCard, i: number) => (
             <div
               key={card.id ? `id-${card.id}` : `idx-${i}`}
               className="win-card reveal"
