@@ -3,7 +3,9 @@
 import { useEffect, useRef, useState } from 'react';
 import { SectionProps } from '@/types/theme';
 
-export default function JoinSection({ settings: content, id }: SectionProps) {
+const WHATSAPP_NUMBER = '919483937558';
+
+export default function JoinSection({ settings: content }: SectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
   const [submitted, setSubmitted] = useState(false);
   const [transmitting, setTransmitting] = useState(false);
@@ -28,11 +30,26 @@ export default function JoinSection({ settings: content, id }: SectionProps) {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setTransmitting(true);
-    setTimeout(() => {
-      setSubmitted(true);
-      setTransmitting(false);
-      (e.target as HTMLFormElement).reset();
-    }, 1200);
+
+    const form = e.currentTarget;
+    const formData = new FormData(form);
+    const name = String(formData.get('name') ?? '').trim();
+    const email = String(formData.get('email') ?? '').trim();
+    const notes = String(formData.get('notes') ?? '').trim();
+
+    const message = [
+      'New Join Form Submission',
+      `Name: ${name}`,
+      `Email: ${email}`,
+      `Notes: ${notes || 'N/A'}`,
+    ].join('\n');
+
+    const whatsappUrl = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+
+    setSubmitted(true);
+    setTransmitting(false);
+    form.reset();
   };
 
   return (

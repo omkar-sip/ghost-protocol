@@ -1,6 +1,6 @@
 // src/lib/firebase/config.ts
 import { initializeApp, getApps, getApp } from 'firebase/app';
-import { getAuth } from 'firebase/auth';
+import { Auth, getAuth } from 'firebase/auth';
 
 const firebaseConfig = {
   apiKey: process.env.NEXT_PUBLIC_FIREBASE_API_KEY,
@@ -11,7 +11,16 @@ const firebaseConfig = {
   appId: process.env.NEXT_PUBLIC_FIREBASE_APP_ID
 };
 
-// Initialize Firebase gracefully for Next.js SSR
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
-export const auth = getAuth(app);
-export default app;
+const hasClientConfig = Object.values(firebaseConfig).every(
+  (value) => typeof value === 'string' && value.length > 0,
+);
+
+// Vercel builds can run without the runtime Firebase variables. Do not call
+// initializeApp/getAuth with undefined values: that makes static generation
+// fail with auth/invalid-api-key. Authentication is enabled when the variables
+// are present in the deployment environment.
+export const auth: Auth | null = hasClientConfig
+  ? getAuth(!getApps().length ? initializeApp(firebaseConfig) : getApp())
+  : null;
+
+export default getApps()[0] ?? null;

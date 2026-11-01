@@ -15,6 +15,13 @@ export default function NavigationEditor() {
     saveContent({ ...content, nav: { ...nav, brand: value } });
   };
 
+  const updateNavSetting = (
+    field: 'logoSize' | 'navFontSize' | 'navFontFamily',
+    value: number | string
+  ) => {
+    saveContent({ ...content, nav: { ...nav, [field]: value } });
+  };
+
   const updateLink = (index: number, field: keyof NavLink, value: string) => {
     const updatedLinks = [...nav.links];
     updatedLinks[index] = { ...updatedLinks[index], [field]: value };
@@ -44,6 +51,46 @@ export default function NavigationEditor() {
         <div>
           <label className="dash-label">Brand Name</label>
           <input className="dash-input" defaultValue={nav.brand} onBlur={(e) => updateBrand(e.target.value)} />
+        </div>
+
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem' }}>
+          <div>
+            <label className="dash-label">Logo Size (px)</label>
+            <input
+              className="dash-input"
+              type="number"
+              min={20}
+              max={120}
+              defaultValue={nav.logoSize ?? 38}
+              onBlur={(e) => updateNavSetting('logoSize', Number(e.target.value) || 38)}
+            />
+          </div>
+          <div>
+            <label className="dash-label">Nav Font Size (px)</label>
+            <input
+              className="dash-input"
+              type="number"
+              min={10}
+              max={32}
+              defaultValue={nav.navFontSize ?? 14}
+              onBlur={(e) => updateNavSetting('navFontSize', Number(e.target.value) || 14)}
+            />
+          </div>
+          <div>
+            <label className="dash-label">Nav Font Family</label>
+            <select
+              className="dash-input"
+              defaultValue={nav.navFontFamily ?? 'space-grotesk'}
+              onChange={(e) => updateNavSetting('navFontFamily', e.target.value)}
+            >
+              <option value="space-grotesk">Space Grotesk</option>
+              <option value="epilogue">Epilogue</option>
+              <option value="inter">Inter</option>
+              <option value="jetbrains-mono">JetBrains Mono</option>
+              <option value="arial">Arial</option>
+              <option value="georgia">Georgia</option>
+            </select>
+          </div>
         </div>
 
         <div>

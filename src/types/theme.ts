@@ -1,10 +1,11 @@
-export type FieldType = 'text' | 'textarea' | 'richtext' | 'image' | 'color' | 'list';
+export type FieldType = 'text' | 'textarea' | 'richtext' | 'image' | 'color' | 'list' | 'select';
 
 export interface SchemaField {
   id: string;
   label: string;
   type: FieldType;
   default?: any;
+  options?: Array<{ label: string; value: string }>;
   // For 'list' types, define the schema of the list items
   itemSchema?: SchemaField[];
   // For 'list' types, an optional field ID to use as the title for each item in the UI

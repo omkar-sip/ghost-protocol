@@ -6,6 +6,26 @@ import { SectionProps } from '@/types/theme';
 export default function HeroSection({ settings: content, id }: SectionProps) {
   const heroImgRef = useRef<HTMLDivElement>(null);
   const sectionRef = useRef<HTMLElement>(null);
+  const heroTitleAnimation = String(content.heroTitleAnimation ?? 'none');
+
+  const getHeroTitleAnimationStyle = (animationKey: string): React.CSSProperties => {
+    switch (animationKey) {
+      case 'float':
+      case 'Float Drift':
+        return { animation: 'hero-title-float 6.5s ease-in-out infinite' };
+      case 'glitch':
+      case 'Glitch Pulse':
+        return { animation: 'hero-title-glitch 2.6s steps(2, end) infinite' };
+      case 'pulse':
+      case 'Neon Pulse':
+        return { animation: 'hero-title-pulse 3.6s ease-in-out infinite' };
+      case 'wave':
+      case 'Wave Tilt':
+        return { animation: 'hero-title-wave 5.2s ease-in-out infinite' };
+      default:
+        return { animation: 'none' };
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -85,12 +105,13 @@ export default function HeroSection({ settings: content, id }: SectionProps) {
 
           {/* Headline */}
           <h1
-            className="font-headline"
+            className="font-headline hero-title-anim"
             style={{
               fontSize: 'clamp(4.5rem, 11vw, 9rem)', fontWeight: 900,
               color: 'var(--color-on-surface)', lineHeight: 0.85,
               letterSpacing: '-0.03em', textTransform: 'uppercase',
-              position: 'relative', marginBottom: '2rem'
+              position: 'relative', marginBottom: '2rem',
+              ...getHeroTitleAnimationStyle(heroTitleAnimation)
             }}
             dangerouslySetInnerHTML={{ __html: content.title }}
           />

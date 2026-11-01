@@ -6,6 +6,9 @@ export interface NavLink {
 export interface NavContent {
   brand: string;
   links: NavLink[];
+  logoSize?: number;
+  navFontSize?: number;
+  navFontFamily?: string;
 }
 
 export interface HeroContent {
@@ -18,6 +21,7 @@ export interface HeroContent {
   secondaryCtaLink: string;
   image: string;
   imageAlt: string;
+  heroTitleAnimation?: 'none' | 'float' | 'glitch' | 'pulse' | 'wave';
 }
 
 export interface WinCard {
@@ -26,6 +30,7 @@ export interface WinCard {
   title: string;
   description: string;
   status: string;
+  imageUrl?: string;
 }
 
 export interface WinsContent {

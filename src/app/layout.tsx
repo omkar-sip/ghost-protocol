@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Epilogue, Space_Grotesk } from "next/font/google";
+import { Epilogue, Inter, JetBrains_Mono, Space_Grotesk } from "next/font/google";
 import "./globals.css";
 
 const epilogue = Epilogue({
@@ -10,6 +10,18 @@ const epilogue = Epilogue({
 
 const spaceGrotesk = Space_Grotesk({
   variable: "--font-space-grotesk",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const inter = Inter({
+  variable: "--font-inter",
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+});
+
+const jetBrainsMono = JetBrains_Mono({
+  variable: "--font-jetbrains-mono",
   subsets: ["latin"],
   weight: ["300", "400", "500", "600", "700"],
 });
@@ -28,7 +40,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${epilogue.variable} ${spaceGrotesk.variable} scroll-smooth`}>
+    <html
+      lang="en"
+      className={`${epilogue.variable} ${spaceGrotesk.variable} ${inter.variable} ${jetBrainsMono.variable} scroll-smooth`}
+    >
       <body>
         <AuthProvider>
           {children}

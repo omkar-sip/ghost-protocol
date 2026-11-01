@@ -1,0 +1,8 @@
+.git
+.github
+.vscode
+.next
+node_modules
+npm-debug.log*
+firebase-debug.log*
+firebase-debug.*.log*

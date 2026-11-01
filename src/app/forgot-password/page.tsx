@@ -21,6 +21,12 @@ export default function ForgotPasswordPage() {
     e.preventDefault();
     setLoading(true);
     setStatus(null);
+
+    if (!auth) {
+      setStatus({ type: 'error', message: 'Authentication is temporarily unavailable. Please configure Firebase in the deployment environment.' });
+      setLoading(false);
+      return;
+    }
     
     if (!ALLOWED_EMAILS.includes(email.toLowerCase())) {
       setStatus({ type: 'error', message: 'Unauthorized email. Reset request denied.' });

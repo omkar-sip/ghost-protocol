@@ -2,11 +2,42 @@
 
 import { useEffect, useRef, useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { SectionProps } from '@/types/theme';
 
-export default function Navbar({ settings: content, id }: SectionProps) {
+export default function Navbar({ settings: content }: SectionProps) {
   const navRef = useRef<HTMLElement>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
+  const logoSize = content.logoSize ?? 38;
+  const navFontSize = content.navFontSize ?? 14;
+  const navFontFamily = content.navFontFamily ?? 'space-grotesk';
+
+  const resolveFontFamily = (fontKey: string) => {
+    switch (fontKey) {
+      case 'space-grotesk':
+      case 'Space Grotesk':
+        return 'var(--font-space-grotesk), sans-serif';
+      case 'epilogue':
+      case 'Epilogue':
+        return 'var(--font-epilogue), sans-serif';
+      case 'inter':
+      case 'Inter':
+        return 'var(--font-inter), sans-serif';
+      case 'jetbrains-mono':
+      case 'JetBrains Mono':
+        return 'var(--font-jetbrains-mono), monospace';
+      case 'arial':
+      case 'Arial':
+        return 'Arial, sans-serif';
+      case 'georgia':
+      case 'Georgia':
+        return 'Georgia, serif';
+      default:
+        return 'var(--font-space-grotesk), sans-serif';
+    }
+  };
+
+  const navFontStack = resolveFontFamily(navFontFamily);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -53,7 +84,12 @@ export default function Navbar({ settings: content, id }: SectionProps) {
           ✕
         </button>
         {content.links.map((link: any) => (
-          <a key={link.label} href={link.href} onClick={() => setMobileOpen(false)}>
+          <a
+            key={link.label}
+            href={link.href}
+            onClick={() => setMobileOpen(false)}
+            style={{ fontFamily: navFontStack, fontSize: `${navFontSize}px` }}
+          >
             {link.label}
           </a>
         ))}
@@ -75,13 +111,19 @@ export default function Navbar({ settings: content, id }: SectionProps) {
         <a
           href="#"
           style={{
-            fontFamily: "'Epilogue', sans-serif", fontWeight: 900,
-            fontSize: '1.1rem', textTransform: 'uppercase',
-            letterSpacing: '0.05em', color: 'var(--color-on-surface)',
-            textDecoration: 'none'
+            textDecoration: 'none',
+            display: 'inline-flex',
+            alignItems: 'center'
           }}
         >
-          {content.brand}
+          <Image
+            src="/Gemini_Generated_Image_hmk4nbhmk4nbhmk4.png"
+            alt={content.brand}
+            width={180}
+            height={48}
+            priority
+            style={{ width: 'auto', height: `${logoSize}px` }}
+          />
         </a>
 
         {/* Desktop Nav */}
@@ -91,9 +133,9 @@ export default function Navbar({ settings: content, id }: SectionProps) {
               key={link.label}
               href={link.href}
               style={{
-                fontFamily: "'Space Grotesk', sans-serif",
+                fontFamily: navFontStack,
                 fontWeight: i === 0 ? 700 : 500,
-                fontSize: '0.85rem',
+                fontSize: `${navFontSize}px`,
                 color: 'var(--color-on-surface)',
                 opacity: i === 0 ? 1 : 0.65,
                 textDecoration: i === 0 ? 'underline' : 'none',

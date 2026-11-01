@@ -41,6 +41,21 @@ export default function HeroEditor() {
         </div>
 
         <div>
+          <label className="dash-label">Hero Title Animation</label>
+          <select
+            className="dash-input"
+            defaultValue={hero.heroTitleAnimation ?? 'none'}
+            onChange={(e) => update('heroTitleAnimation', e.target.value)}
+          >
+            <option value="none">None</option>
+            <option value="float">Float Drift</option>
+            <option value="glitch">Glitch Pulse</option>
+            <option value="pulse">Neon Pulse</option>
+            <option value="wave">Wave Tilt</option>
+          </select>
+        </div>
+
+        <div>
           <label className="dash-label">Description</label>
           <textarea
             className="dash-textarea"

@@ -32,6 +32,11 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const router = useRouter();
 
   useEffect(() => {
+    if (!auth) {
+      setLoading(false);
+      return;
+    }
+
     const unsubscribe = onAuthStateChanged(auth, async (currentUser) => {
       if (currentUser) {
         const isAllowed = ALLOWED_EMAILS.includes(currentUser.email?.toLowerCase() || '');
@@ -39,7 +44,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         // Strictly enforce allowed emails
         if (!isAllowed) {
           console.error("Unauthorized entry attempt by", currentUser.email);
-          await signOut(auth);
+          await signOut(auth!);
           setUser(null);
           setLoading(false);
           return;
@@ -64,6 +69,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   }, []);
 
   const logout = async () => {
+    if (!auth) return;
     await signOut(auth);
     router.push('/login');
   };

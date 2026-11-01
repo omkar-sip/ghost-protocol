@@ -34,6 +34,7 @@ export default function WinsEditor() {
       title: 'NEW_PROJECT',
       description: 'Describe your achievement here.',
       status: 'Status: In Progress',
+      imageUrl: '',
     };
     saveContent({ ...content, wins: { ...wins, cards: [...wins.cards, newCard] } });
     setEditingId(newId);
@@ -109,6 +110,15 @@ export default function WinsEditor() {
                 <div>
                   <label className="dash-label">Status</label>
                   <input className="dash-input" defaultValue={card.status} onBlur={(e) => updateCard(card.id, 'status', e.target.value)} />
+                </div>
+                <div>
+                  <label className="dash-label">Win Image URL (optional)</label>
+                  <input
+                    className="dash-input"
+                    placeholder="https://example.com/win-image.jpg"
+                    defaultValue={card.imageUrl ?? ''}
+                    onBlur={(e) => updateCard(card.id, 'imageUrl', e.target.value)}
+                  />
                 </div>
               </div>
             )}

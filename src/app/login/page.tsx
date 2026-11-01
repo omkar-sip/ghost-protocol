@@ -39,6 +39,12 @@ export default function LoginPage() {
     setError('');
     setMessage('');
 
+    if (!auth) {
+      setError('Authentication is temporarily unavailable. Please configure Firebase in the deployment environment.');
+      setLoading(false);
+      return;
+    }
+
     if (!validateEmail(email)) {
       setError('This email is not authorized for system access.');
       setLoading(false);
@@ -83,6 +89,12 @@ export default function LoginPage() {
     setLoading(true);
     setError('');
     setMessage('');
+
+    if (!auth) {
+      setError('Authentication is temporarily unavailable. Please configure Firebase in the deployment environment.');
+      setLoading(false);
+      return;
+    }
     
     try {
       const provider = new GoogleAuthProvider();

@@ -95,6 +95,27 @@ body {
   0%, 100% { transform: translateY(0px) rotate(-1deg); }
   50% { transform: translateY(-8px) rotate(1deg); }
 }
+@keyframes hero-title-float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+@keyframes hero-title-glitch {
+  0%, 100% { transform: translate(0, 0) skewX(0deg); text-shadow: 0 0 0 transparent; }
+  15% { transform: translate(-2px, 0) skewX(-1deg); text-shadow: 3px 0 0 rgba(162,255,0,0.45); }
+  30% { transform: translate(2px, 0) skewX(1deg); text-shadow: -3px 0 0 rgba(64,105,0,0.35); }
+  45% { transform: translate(0, -2px) skewX(0deg); text-shadow: 0 -2px 0 rgba(26,28,28,0.2); }
+  60% { transform: translate(0, 2px) skewX(0deg); text-shadow: 0 2px 0 rgba(26,28,28,0.2); }
+  75% { transform: translate(-1px, 0) skewX(-0.5deg); text-shadow: 2px 0 0 rgba(162,255,0,0.35); }
+}
+@keyframes hero-title-pulse {
+  0%, 100% { filter: brightness(1); text-shadow: 0 0 0 rgba(162,255,0,0); }
+  50% { filter: brightness(1.08); text-shadow: 0 0 24px rgba(162,255,0,0.32); }
+}
+@keyframes hero-title-wave {
+  0%, 100% { transform: rotate(0deg) scale(1); }
+  25% { transform: rotate(-0.7deg) scale(1.003); }
+  75% { transform: rotate(0.7deg) scale(1.003); }
+}
 
 /* Sketch underline */
 .sketch-underline {
@@ -290,6 +311,17 @@ body {
   opacity: 1;
   transform: translateY(0);
 }
+
+/* Hero title animation presets */
+.hero-title-anim {
+  will-change: transform, filter, text-shadow;
+  transform-origin: left center;
+}
+.hero-title-anim--none { animation: none; }
+.hero-title-anim--float { animation: hero-title-float 6.5s ease-in-out infinite; }
+.hero-title-anim--glitch { animation: hero-title-glitch 3.2s steps(2, end) infinite; }
+.hero-title-anim--pulse { animation: hero-title-pulse 4.2s ease-in-out infinite; }
+.hero-title-anim--wave { animation: hero-title-wave 5.5s ease-in-out infinite; }
 
 /* Ghost text watermark */
 .ghost-wm {

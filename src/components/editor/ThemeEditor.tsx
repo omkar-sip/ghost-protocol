@@ -46,6 +46,23 @@ function SchemaForm({
             )}
           </div>
         );
+      case 'select':
+        return (
+          <div key={fieldId} style={{ marginBottom: '1rem' }}>
+            <label className="dash-label">{field.label}</label>
+            <select
+              className="dash-input"
+              value={val || field.default || ''}
+              onChange={(e) => handleChange(fieldId, e.target.value)}
+            >
+              {(field.options || []).map((option) => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </div>
+        );
       case 'textarea':
       case 'richtext':
         return (
@@ -99,6 +116,23 @@ function SchemaForm({
                             handleChange(fieldId, newList);
                           }}
                         />
+                      ) : subField.type === 'select' ? (
+                        <select
+                          className="dash-input"
+                          style={{ padding: '0.5rem' }}
+                          value={item[subField.id] || subField.default || ''}
+                          onChange={(e) => {
+                            const newList = [...listItems];
+                            newList[index] = { ...item, [subField.id]: e.target.value };
+                            handleChange(fieldId, newList);
+                          }}
+                        >
+                          {(subField.options || []).map((option) => (
+                            <option key={option.value} value={option.value}>
+                              {option.label}
+                            </option>
+                          ))}
+                        </select>
                       ) : (
                         <input
                           type={subField.type === 'color' ? 'color' : 'text'}

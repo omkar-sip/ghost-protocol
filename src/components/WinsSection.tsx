@@ -1,10 +1,12 @@
 'use client';
 
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { SectionProps } from '@/types/theme';
+import { WinCard } from '@/types/content';
 
-export default function WinsSection({ settings: content, id }: SectionProps) {
+export default function WinsSection({ settings: content }: SectionProps) {
   const sectionRef = useRef<HTMLElement>(null);
+  const [openImage, setOpenImage] = useState<{ src: string; alt: string } | null>(null);
 
   useEffect(() => {
     const reveals = sectionRef.current?.querySelectorAll('.reveal');
@@ -23,6 +25,17 @@ export default function WinsSection({ settings: content, id }: SectionProps) {
 
     reveals.forEach(el => observer.observe(el));
     return () => observer.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const handleEscape = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') {
+        setOpenImage(null);
+      }
+    };
+
+    window.addEventListener('keydown', handleEscape);
+    return () => window.removeEventListener('keydown', handleEscape);
   }, []);
 
   const tapeRotations = ['rotate(-2deg)', 'rotate(2deg)', 'rotate(-1deg)'];
@@ -81,7 +94,7 @@ export default function WinsSection({ settings: content, id }: SectionProps) {
             gap: '3.5rem'
           }}
         >
-          {content.cards.map((card: any, i: number) => (
+          {content.cards.map((card: WinCard, i: number) => (
             <div
               key={card.id ? `id-${card.id}` : `idx-${i}`}
               className="win-card reveal"
@@ -93,6 +106,34 @@ export default function WinsSection({ settings: content, id }: SectionProps) {
                   transform: `translateX(-50%) ${tapeRotations[i % tapeRotations.length]}`
                 }}
               />
+              {card.imageUrl && (
+                <button
+                  type="button"
+                  aria-label={`Open image for ${card.title}`}
+                  onClick={() => setOpenImage({ src: card.imageUrl as string, alt: `${card.title} win` })}
+                  style={{
+                    padding: 0,
+                    border: 'none',
+                    background: 'transparent',
+                    cursor: 'zoom-in',
+                    width: '100%',
+                    display: 'block',
+                    marginBottom: '1rem'
+                  }}
+                >
+                  <img
+                    src={card.imageUrl}
+                    alt={`${card.title} win`}
+                    style={{
+                      width: '100%',
+                      aspectRatio: '16 / 9',
+                      objectFit: 'cover',
+                      borderRadius: '12px',
+                      border: '1px solid rgba(26,28,28,0.12)'
+                    }}
+                  />
+                </button>
+              )}
               <span
                 style={{
                   fontFamily: "'Space Grotesk', monospace", fontWeight: 700,
@@ -130,6 +171,61 @@ export default function WinsSection({ settings: content, id }: SectionProps) {
           ))}
         </div>
       </div>
+
+      {openImage && (
+        <div
+          role="dialog"
+          aria-modal="true"
+          aria-label="Expanded win image"
+          onClick={() => setOpenImage(null)}
+          style={{
+            position: 'fixed',
+            inset: 0,
+            background: 'rgba(0, 0, 0, 0.8)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            padding: '1.5rem',
+            zIndex: 1000
+          }}
+        >
+          <button
+            type="button"
+            onClick={() => setOpenImage(null)}
+            aria-label="Close image"
+            style={{
+              position: 'absolute',
+              top: '1rem',
+              right: '1rem',
+              border: '1px solid rgba(255,255,255,0.5)',
+              background: 'rgba(0,0,0,0.35)',
+              color: '#fff',
+              fontSize: '1.25rem',
+              lineHeight: 1,
+              borderRadius: '8px',
+              width: '2.25rem',
+              height: '2.25rem',
+              cursor: 'pointer'
+            }}
+          >
+            ×
+          </button>
+          <img
+            src={openImage.src}
+            alt={openImage.alt}
+            onClick={(e) => e.stopPropagation()}
+            style={{
+              maxWidth: 'min(1100px, 100%)',
+              maxHeight: '85vh',
+              width: 'auto',
+              height: 'auto',
+              borderRadius: '12px',
+              boxShadow: '0 20px 60px rgba(0,0,0,0.45)',
+              objectFit: 'contain'
+            }}
+          />
+        </div>
+      )}
     </section>
   );
 }

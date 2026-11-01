@@ -15,6 +15,9 @@
       "type": "navbar",
       "settings": {
         "brand": "GHOST PROTOCOL",
+        "logoSize": 38,
+        "navFontSize": 14,
+        "navFontFamily": "space-grotesk",
         "links": [
           {
             "label": "Doodles",
@@ -66,6 +69,7 @@
         "ctaLink": "#garage",
         "secondaryCta": "View Wins",
         "secondaryCtaLink": "#wins",
+        "heroTitleAnimation": "glitch",
         "image": "https://lh3.googleusercontent.com/aida-public/AB6AXuCVs4mfdLHlEDTtqMMoOwd-2QUdgV55xASSsZfFbaQ0xgqQFKrf8csO68U1eTeLfsP6YDtXB0lXT5zh1pZDFcvyptktt5lkMiOtvfkz3reKi7ZPU6GCXegVXPvo5Yq5heU1_YULT7qq9qG4fapRnHsfwRkPjn9wHBAk_Z5-wBIVPiB0n--Lwd-xwnQFp-1_18LO63kyodGvbxs2CpeoNz4vPI9-dHtbxTT1pd2Lpzgi55N7EcYFwMIMFkBTMtJU8IyU_9OvO3VfoA",
         "imageAlt": "GHOST PROTOCOL concept sketch"
       }
