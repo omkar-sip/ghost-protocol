@@ -74,6 +74,46 @@
         "description": "Best Design at SXSW Hack. A low-latency bridge between paper sketches and cloud infrastructure.",
         "status": "Status: Scaling to v2",
         "imageUrl": ""
+      },
+      {
+        "id": "4",
+        "badge": "Hackathon Project",
+        "title": "NEBULON",
+        "description": "Hackathon project from the Ghost Protocol team.",
+        "status": "Status: Archived Win",
+        "imageUrl": ""
+      },
+      {
+        "id": "5",
+        "badge": "3rd Place",
+        "title": "SMART HORIZON INTERNATIONAL HACKATHON",
+        "description": "Awarded 3rd place at the Smart Horizon International Hackathon.",
+        "status": "Status: Verified Placement",
+        "imageUrl": ""
+      },
+      {
+        "id": "6",
+        "badge": "2026 / Bhartesh College",
+        "title": "HACKPULSE 2026",
+        "description": "HackPulse 2026 hackathon held at Bhartesh College.",
+        "status": "Status: Hackathon Win",
+        "imageUrl": ""
+      },
+      {
+        "id": "7",
+        "badge": "CTF Competition",
+        "title": "CTF COMPETITION",
+        "description": "Capture the Flag competition at JCER.",
+        "status": "Status: Competition Win",
+        "imageUrl": ""
+      },
+      {
+        "id": "8",
+        "badge": "Hackathon",
+        "title": "HACKEVA HACKATHON",
+        "description": "HackEva Hackathon achievement.",
+        "status": "Status: Hackathon Win",
+        "imageUrl": ""
       }
     ]
   },

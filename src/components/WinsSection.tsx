@@ -39,16 +39,55 @@ export default function WinsSection({ settings: content }: SectionProps) {
   }, []);
 
   const tapeRotations = ['rotate(-2deg)', 'rotate(2deg)', 'rotate(-1deg)'];
-  const fallbackWin: WinCard = {
-    id: '3',
-    badge: 'Grand Prix / 2024',
-    title: 'ANALOG_CLOUD',
-    description: 'Best Design at SXSW Hack. A low-latency bridge between paper sketches and cloud infrastructure.',
-    status: 'Status: Scaling to v2',
-  };
-  const cards: WinCard[] = Array.isArray(content.cards) && content.cards.length >= 3
-    ? content.cards
-    : [...(content.cards || []), fallbackWin];
+  const fallbackWins: WinCard[] = [
+    {
+      id: '3',
+      badge: 'Grand Prix / 2024',
+      title: 'ANALOG_CLOUD',
+      description: 'Best Design at SXSW Hack. A low-latency bridge between paper sketches and cloud infrastructure.',
+      status: 'Status: Scaling to v2',
+    },
+    {
+      id: '4',
+      badge: 'Hackathon Project',
+      title: 'NEBULON',
+      description: 'Hackathon project from the Ghost Protocol team.',
+      status: 'Status: Archived Win',
+    },
+    {
+      id: '5',
+      badge: '3rd Place',
+      title: 'SMART HORIZON INTERNATIONAL HACKATHON',
+      description: 'Awarded 3rd place at the Smart Horizon International Hackathon.',
+      status: 'Status: Verified Placement',
+    },
+    {
+      id: '6',
+      badge: '2026 / Bhartesh College',
+      title: 'HACKPULSE 2026',
+      description: 'HackPulse 2026 hackathon held at Bhartesh College.',
+      status: 'Status: Hackathon Win',
+    },
+    {
+      id: '7',
+      badge: 'CTF Competition',
+      title: 'CTF COMPETITION',
+      description: 'Capture the Flag competition at JCER.',
+      status: 'Status: Competition Win',
+    },
+    {
+      id: '8',
+      badge: 'Hackathon',
+      title: 'HACKEVA HACKATHON',
+      description: 'HackEva Hackathon achievement.',
+      status: 'Status: Hackathon Win',
+    },
+  ];
+  const existingCards: WinCard[] = Array.isArray(content.cards) ? content.cards : [];
+  const cards: WinCard[] = [
+    ...existingCards,
+    ...fallbackWins.filter((fallback) => !existingCards.some((card) => card.title === fallback.title)),
+  ];
 
   return (
     <section
