@@ -53,26 +53,18 @@
     "cards": [
       {
         "id": "1",
-        "badge": "Gold / 2023",
-        "title": "NEURAL_DRIFT",
+        "badge": "TOP 3 IN DOMAIN",
+        "title": "UPSKILL INDIA CHALLENE FINALISTS @IIT BOMBAY",
         "description": "First Place at Global AI Sprint. Built a real-time gesture control system for autonomous racing simulators.",
         "status": "Status: Verified Deployment",
         "imageUrl": ""
       },
       {
         "id": "2",
-        "badge": "Titan / 2023",
-        "title": "SYNTH_BLUEPRINT",
+        "badge": "BEST UI/UX",
+        "title": "HACK AURA 2K26",
         "description": "Winner of Web3 Builders Summit. Developed a CAD-to-NFT pipeline with parametric sketch generation.",
-        "status": "Status: Open Source Alpha",
-        "imageUrl": ""
-      },
-      {
-        "id": "3",
-        "badge": "Grand Prix / 2024",
-        "title": "ANALOG_CLOUD",
-        "description": "Best Design at SXSW Hack. A low-latency bridge between paper sketches and cloud infrastructure.",
-        "status": "Status: Scaling to v2",
+        "status": "Status: Verified Deployment",
         "imageUrl": ""
       },
       {

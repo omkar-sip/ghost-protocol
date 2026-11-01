@@ -41,11 +41,18 @@ export default function WinsSection({ settings: content }: SectionProps) {
   const tapeRotations = ['rotate(-2deg)', 'rotate(2deg)', 'rotate(-1deg)'];
   const fallbackWins: WinCard[] = [
     {
-      id: '3',
-      badge: 'Grand Prix / 2024',
-      title: 'ANALOG_CLOUD',
-      description: 'Best Design at SXSW Hack. A low-latency bridge between paper sketches and cloud infrastructure.',
-      status: 'Status: Scaling to v2',
+      id: '1',
+      badge: 'TOP 3 IN DOMAIN',
+      title: 'UPSKILL INDIA CHALLENE FINALISTS @IIT BOMBAY',
+      description: 'First Place at Global AI Sprint. Built a real-time gesture control system for autonomous racing simulators.',
+      status: 'Status: Verified Deployment',
+    },
+    {
+      id: '2',
+      badge: 'BEST UI/UX',
+      title: 'HACK AURA 2K26',
+      description: 'Winner of Web3 Builders Summit. Developed a CAD-to-NFT pipeline with parametric sketch generation.',
+      status: 'Status: Verified Deployment',
     },
     {
       id: '4',
@@ -83,10 +90,13 @@ export default function WinsSection({ settings: content }: SectionProps) {
       status: 'Status: Hackathon Win',
     },
   ];
-  const existingCards: WinCard[] = Array.isArray(content.cards) ? content.cards : [];
+  const obsoleteTitles = new Set(['NEURAL_DRIFT', 'SYNTH_BLUEPRINT', 'ANALOG_CLOUD']);
+  const existingCards: WinCard[] = Array.isArray(content.cards)
+    ? content.cards.filter((card) => !obsoleteTitles.has(card.title))
+    : [];
   const cards: WinCard[] = [
-    ...existingCards,
-    ...fallbackWins.filter((fallback) => !existingCards.some((card) => card.title === fallback.title)),
+    ...fallbackWins.map((fallback) => existingCards.find((card) => card.title === fallback.title) ?? fallback),
+    ...existingCards.filter((card) => !fallbackWins.some((fallback) => fallback.title === card.title)),
   ];
 
   return (
