@@ -31,6 +31,18 @@ export default function GarageSection({ settings: content, id }: SectionProps) {
     });
   };
 
+  // Older Firestore documents may still contain the previous two-item garage.
+  // Use the bundled team artwork until that document is updated.
+  const teamItems = [1, 2, 3, 4].map((team) => ({
+    id: `team-${team}`,
+    image: `/team${team}.jpg`,
+    label: `#TEAM_0${team}`,
+    alt: `Team ${team} sketch`,
+  }));
+  const items = Array.isArray(content.items) && content.items.length >= 4
+    ? content.items
+    : teamItems;
+
   return (
     <section
       ref={sectionRef}
@@ -98,7 +110,7 @@ export default function GarageSection({ settings: content, id }: SectionProps) {
         }}
         className="no-scrollbar"
       >
-        {content.items.map((item: any, index: number) => (
+        {items.map((item: any, index: number) => (
           <div key={item.id ? `id-${item.id}` : `idx-${index}`} className="garage-card">
             <div className="garage-card-inner">
               {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -108,23 +120,6 @@ export default function GarageSection({ settings: content, id }: SectionProps) {
           </div>
         ))}
 
-        {/* Placeholder card */}
-        <div className="garage-card">
-          <div
-            className="garage-card-inner"
-            style={{
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-              flexDirection: 'column', gap: '0.75rem'
-            }}
-          >
-            <svg width="48" height="48" viewBox="0 0 48 48" fill="none" style={{ opacity: 0.25 }}>
-              <rect x="4" y="4" width="40" height="40" stroke="#1a1c1c" strokeWidth="1.5" strokeDasharray="4 3" />
-              <path d="M24 16 V32 M16 24 H32" stroke="#1a1c1c" strokeWidth="1.5" />
-            </svg>
-            <span className="stamp" style={{ opacity: 0.4, fontSize: '9px' }}>YOUR_SKETCH_HERE</span>
-            <div className="garage-label" style={{ position: 'static', marginTop: '0.5rem' }}>#NEW_DRAFT</div>
-          </div>
-        </div>
       </div>
     </section>
   );
