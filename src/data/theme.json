@@ -82,6 +82,13 @@
         "stamp": "ARCHIVE_03_WINS",
         "cards": [
           {
+            "id": "5",
+            "badge": "3rd Place",
+            "title": "SMART HORIZON INTERNATIONAL HACKATHON",
+            "description": "Awarded 3rd place at the Smart Horizon International Hackathon.",
+            "status": "Status: Verified Placement"
+          },
+          {
             "id": "1",
             "badge": "TOP 3 IN DOMAIN",
             "title": "UPSKILL INDIA CHALLENE FINALISTS @IIT BOMBAY",
@@ -103,13 +110,6 @@
             "status": "Status: Archived Win"
           },
           {
-            "id": "5",
-            "badge": "3rd Place",
-            "title": "SMART HORIZON INTERNATIONAL HACKATHON",
-            "description": "Awarded 3rd place at the Smart Horizon International Hackathon.",
-            "status": "Status: Verified Placement"
-          },
-          {
             "id": "6",
             "badge": "2026 / Bhartesh College",
             "title": "HACKPULSE 2026",
@@ -129,6 +129,13 @@
             "title": "HACKEVA HACKATHON",
             "description": "HackEva Hackathon achievement.",
             "status": "Status: Hackathon Win"
+          },
+          {
+            "id": "9",
+            "badge": "3rd Place",
+            "title": "GIT AGRITHON",
+            "description": "3rd place at GIT Agrithon.",
+            "status": "Status: Verified Placement"
           }
         ]
       }

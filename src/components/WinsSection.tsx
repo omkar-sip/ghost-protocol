@@ -41,6 +41,13 @@ export default function WinsSection({ settings: content }: SectionProps) {
   const tapeRotations = ['rotate(-2deg)', 'rotate(2deg)', 'rotate(-1deg)'];
   const fallbackWins: WinCard[] = [
     {
+      id: '5',
+      badge: '3rd Place',
+      title: 'SMART HORIZON INTERNATIONAL HACKATHON',
+      description: 'Awarded 3rd place at the Smart Horizon International Hackathon.',
+      status: 'Status: Verified Placement',
+    },
+    {
       id: '1',
       badge: 'TOP 3 IN DOMAIN',
       title: 'UPSKILL INDIA CHALLENE FINALISTS @IIT BOMBAY',
@@ -62,13 +69,6 @@ export default function WinsSection({ settings: content }: SectionProps) {
       status: 'Status: Archived Win',
     },
     {
-      id: '5',
-      badge: '3rd Place',
-      title: 'SMART HORIZON INTERNATIONAL HACKATHON',
-      description: 'Awarded 3rd place at the Smart Horizon International Hackathon.',
-      status: 'Status: Verified Placement',
-    },
-    {
       id: '6',
       badge: '2026 / Bhartesh College',
       title: 'HACKPULSE 2026',
@@ -88,6 +88,13 @@ export default function WinsSection({ settings: content }: SectionProps) {
       title: 'HACKEVA HACKATHON',
       description: 'HackEva Hackathon achievement.',
       status: 'Status: Hackathon Win',
+    },
+    {
+      id: '9',
+      badge: '3rd Place',
+      title: 'GIT AGRITHON',
+      description: '3rd place at GIT Agrithon.',
+      status: 'Status: Verified Placement',
     },
   ];
   const obsoleteTitles = new Set(['NEURAL_DRIFT', 'SYNTH_BLUEPRINT', 'ANALOG_CLOUD']);
