@@ -58,12 +58,6 @@ export default function DynamicPage() {
     <ThemeProvider global={theme.global}>
       <CustomCursor />
 
-      {/* Status Badge */}
-      <div className="status-badge">
-        <div className="status-dot" />
-        SYSTEM_STABLE : CANVAS_READY
-      </div>
-
       {navSection && renderSection(navSection)}
       {tickerSection && renderSection(tickerSection)}
 

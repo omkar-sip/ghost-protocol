@@ -148,21 +148,6 @@ export default function HeroSection({ settings: content, id }: SectionProps) {
             </a>
           </div>
 
-          {/* Meta chip */}
-          <div style={{ marginTop: '2.5rem' }}>
-            <div className="chip">
-              <span
-                style={{
-                  display: 'inline-block', width: '5px', height: '5px',
-                  background: 'var(--color-primary-container)',
-                  border: '1px solid var(--color-primary)',
-                  marginRight: '6px', verticalAlign: 'middle',
-                  animation: 'pulse-dot 2s infinite'
-                }}
-              />
-              SYSTEM_STATUS : CANVAS_READY
-            </div>
-          </div>
         </div>
 
         {/* Hero image */}
